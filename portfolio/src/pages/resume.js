@@ -1,11 +1,11 @@
 import React from 'react'
-import './styles/resumestyles.css';
+import '../styles/resumestyles.css';
 const RESUME = () => {
   return (
     <div className="app">
     <header className="header">
-      <h1>VIJAYAKANTH M</h1>
-      <p className="subheading">Aspiring AI & ML Engineer | Web Developer | Innovator</p>
+      <h1  style={{ textAlign: 'left', marginRight: '40px',marginTop:'-50px'}}>VIJAYAKANTH M</h1>
+      <p className="subheading"  style={{ textAlign: 'left' }}>Aspiring AI & ML Engineer | Web Developer | Innovator</p>
       <div className="profile-picture" style={{ textAlign: 'right', marginRight: '40px', marginTop: '-100px' }}>
         <img src="IMG_20240811_193707.jpg" alt="Profile" style={{ height: '180px', width: '180px', borderRadius: '50%' }} />
       </div>
