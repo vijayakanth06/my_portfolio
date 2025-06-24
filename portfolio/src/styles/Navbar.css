@@ -1,0 +1,175 @@
+/* Navbar Styles */
+.navbar {
+  margin-top: 20px;
+  position: fixed;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  padding: 2rem 9% 0rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 2rem;
+  color: #da0c1df0;
+  font-weight: 800;
+  cursor: pointer;
+  transition: 0.5s ease;
+  text-decoration: none;
+}
+
+.logo:hover {
+  transform: scale(1.1);
+}
+
+/* Mobile Menu Button */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+}
+
+.nav-links a {
+  font-size: 1.1rem;
+  color: white;
+  margin-left: 4rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #da0c1df0;
+  border-bottom: 3px solid #da0c1df0;
+}
+
+/* Add to your Navbar.css or App.css */
+.section {
+  min-height: 100vh;
+  padding: 80px 20px 20px;
+  scroll-margin-top: 20px; /* Adjust based on your navbar height */
+}
+
+/* Smooth scrolling for html element */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mobile menu styles */
+.nav-links {
+  transition: all 0.3s ease;
+}
+
+.nav-links.active {
+  right: 0;
+}
+.nav-link {
+  position: relative;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+.nav-link:hover {
+  color: #da0c1df0;
+}
+
+.nav-link.active {
+  color: #da0c1df0;
+  font-weight: bold;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #da0c1df0;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.logo.active {
+  color: #da0c1df0;
+  font-weight: bold;
+}
+
+/* Adjust scroll offset for sections */
+section {
+  scroll-margin-top: 80px;
+}
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .mobile-menu-btn {
+      display: block;
+      padding-bottom: 10px;
+      padding-left: 0px;
+      margin-top: -10px;
+      margin-left: -30px;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #161616;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: right 0.3s ease;
+      z-index: 1000;
+    }
+
+    .nav-links.active {
+      right: 0;
+    }
+
+    .nav-links a {
+      font-size: 1.5rem;
+      margin: 1rem 0;
+      color: white;
+      text-align: center;
+      width: 100%;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #da0c1df0;
+      margin-left: 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: #da0c1df0;
+      color: black;
+      padding: 0.5rem 0.5rem;
+      border-radius: 50px;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      padding-bottom: 10px;
+      padding-left: 0px;
+      margin-top: -20px;
+      margin-left: -30px;
+    }
+  }
