@@ -120,7 +120,8 @@ html, body {
 
 .home-profile-img {
   position: relative;
-  width: 25vw;
+  width: 30vw;
+  height: 38vw;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.2s linear;

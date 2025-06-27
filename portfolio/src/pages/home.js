@@ -33,7 +33,7 @@ const HOME = () => {
     <div className="home-app" ref={homeRef}>
       <section className="home-section" id="home">
         <div className="home-img-container">
-          <img src="IMG_20240811_193707.jpg" alt="img" className="home-profile-img"/>
+          <img src="profile.jpg" alt="img" className="home-profile-img"/>
         </div>
         <div className="home-content">
           <h1>Hi, It's <span className="home-name-span">Vijayakanth M</span></h1>
