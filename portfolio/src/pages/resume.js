@@ -236,7 +236,7 @@ const RESUME = () => {
 
       {/* Certifications Section */}
       <section className="resume-section">
-        <h2 className="section-title">CERTIFICATE</h2>
+        <h2 className="section-title">CERTIFICATION COURSES</h2>
         <div className="certifications-list">
           {resumeData.certifications.map((cert, index) => (
             <div key={`cert-${index}`} className="certification-item">
