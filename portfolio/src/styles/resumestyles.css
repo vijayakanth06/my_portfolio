@@ -72,11 +72,10 @@ body {
 }
 
 .profile-image-container {
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   overflow: hidden;
-  border: 3px solid var(--primary-color);
   box-shadow: var(--box-shadow);
   transition: var(--transition);
 }
@@ -425,7 +424,21 @@ body {
   font-size: 0.9rem;
   color: var(--text-muted);
 }
+/* In your resumestyles.css file */
+.achievement-items {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin: 0;
+}
 
+.achievement-item {
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.achievement-item:last-child {
+  margin-bottom: 0;
+}
 /* Contact Section */
 .contact-info {
   display: grid;

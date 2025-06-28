@@ -29,6 +29,11 @@ const Achievements = () => {
       title: "1st Place",
       date: "2025",
       description: "ENVISTAS 2025 Paper Presentation (KEC College)"
+    },
+     {
+      title: "5th Place",
+      date: "2025",
+      description: "Awarded Best Presentation and Best Team Collaboration in BYTS INDIA HACKATHON (BIH) 1.0- Artificial Intelligence (KEC college)."
     }
   ];
 

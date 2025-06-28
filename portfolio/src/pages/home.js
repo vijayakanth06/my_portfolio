@@ -53,7 +53,7 @@ const HOME = () => {
             <a href="https://leetcode.com/u/Vijayakanth06/" target="_blank" rel="noopener noreferrer">
               <FaCode className="icon" />
             </a>
-            <a href="mailto:vikymahendiran123@gmail.com">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikymahendiran123@gmail.com">
               <FaEnvelope className="icon" />
             </a>
           </div>
@@ -89,8 +89,8 @@ const HOME = () => {
       
       <Skills id="skills" />
       <Education id="education" />
-      <Projects id="projects" />
       <Achievements id="achievements" />
+      <Projects id="projects" />
       <Contact id="contact" />
       <footer className="footer">
         © 2025 Vijayakanth M. Built with React.

@@ -2,134 +2,117 @@ import React from 'react';
 import '../styles/resumestyles.css';
 
 const RESUME = () => {
-  // Data structure for easy updates
+  // Updated data structure to match the PDF resume
   const resumeData = {
     header: {
       name: "VIJAYAKANTH M",
       title: "Aspiring AI & ML Engineer | Web Developer | Innovator",
       image: "IMG_20240811_193707.jpg"
     },
-    objective: "An engineering student eager to apply technical skills and problem-solving strategies in real-world projects to gain valuable experience and contribute significantly to demanding and creative environments.",
+    objective: "An engineering student who is eager to apply technical skills and problem-solving strategies in real-world projects in order to get valuable experience and contribute significantly in demanding and creative environments.",
     education: [
       {
         degree: "B.Tech - Artificial Intelligence and Machine Learning",
         institution: "Kongu Engineering College, Erode",
-        details: "Expected 2027 | CGPA: 8.72*",
-        coursework: "Python, JAVA, C, and JavaScript"
+        details: "Expected 2027 | CGPA: 8.72",
+        coursework: "Coursework: Python, JAVA, C, and JavaScript"
       },
       {
         degree: "HSC in Computer Science",
-        institution: "Kongu Vellalar Matriculation Hr. Sec. School, Perundurai",
-        details: "2022 - 2023 | Percentage: 94%",
-        coursework: ""
+        institution: "Kongu cellular Matriculation hr.sec.school, Perundurai",
+        details: "2022 - 2023 | Percentage: 94%"
       },
       {
         degree: "SSLC",
-        institution: "Kongu Vellalar Matriculation Hr. Sec. School, Perundurai",
-        details: "2020 - 2021",
-        coursework: ""
+        institution: "Kongu cellular matriculation hr.sec. school, Perundurai, Erode",
+        details: "2020 - 2021"
       }
     ],
     skills: {
-      technical: ["C", "Python", "Java", "HTML", "CSS", "JavaScript"],
-      soft: ["Communication", "Teamwork", "Problem Solving"],
-      tools: ["Git", "GitHub", "MySQL", "MongoDB", "Blender"],
+      technical: [ "C", "Python", "Java", "HTML", "CSS", "JavaScript",
+ "React.js", "Node.js", "Express.js", "MySQL", "MongoDB", "Machine Learning"],
+      soft: ["Communication", "Teamwork", "Problem-solving"],
+      tools: ["GIT", "GITHUB", "Blender"],
       languages: ["English", "Tamil"]
     },
     experience: [
       {
-        role: "Intern at ZEONE",
-        duration: "Nov 2024 - Jan 2025",
+        role: "Intern",
+        company: "ZEONE",
         points: [
-          "Gained practical knowledge in Full Stack development as part of a program conducted by Zeone",
-          "Worked on backend development using Node.js for an AI Interview Chatbot"
+          "Gained practical knowledge in Full Stack development as part of a program conducted by Zeone.",
+          "Worked on back-end development using Node.js for an AI Interview Chatbot."
         ]
       },
       {
-        role: "Intern at SHINELOGICS",
-        duration: "Feb 2025 - Present",
+        role: "Intern",
+        company: "SHINELOGICS",
         points: [
-          "Gained practical knowledge in Deep Learning models",
-          "Worked on real-time projects involving Deep Learning applications, including the prediction of fruits and vegetables"
+          "Gained practical knowledge in Deep Learning models as part of a program conducted by Shinelogics.",
+          "Worked on real-time projects involving Deep Learning applications, including the prediction of fruits and vegetables."
         ]
       }
     ],
-    projects: [
-      {
-        title: "Refined CAPTCHA",
-        description: "Built a CAPTCHA solution with ReactJS, NodeJS to detect bots using machine learning and user behavior analysis, offering a smoother and more secure experience than traditional CAPTCHA."
-      },
-      {
-        title: "Classify Songs by Genre",
-        description: "Worked on a project to classify songs based on genre using machine learning techniques, implementing data preprocessing, feature extraction, and model training."
-      },
-      {
-        title: "Feedback Collection System",
-        description: "Developed and implemented a student feedback system using Java Spring Boot, allowing students to submit and view course evaluations."
-      },
-      {
-        title: "Dynamic Chatbot for Farm2Bag",
-        description: "Developed a chatbot that dynamically utilizes website data to assist users in finding products and providing recommendations. Implemented data preprocessing and NLP."
-      },
-      {
-        title: "Attendance Automation for AI Department",
-        description: "Developed an attendance automation system using the MERN stack, reducing manual attendance process from 1.5 hours to just 10 minutes."
-      }
-    ],
+    projects:[
+  {
+    "title": "Refined CAPTCHA",
+    "description": "An advanced bot detection system that replaces traditional CAPTCHAs with machine learning analyzing user interaction patterns (mouse movements, typing speed) to distinguish humans from bots while being less frustrating for users."
+  },
+  {
+    "title": "Classify Songs by Genre",
+    "description": "A machine learning model that analyzes audio features (tempo, frequency spectrum) to automatically categorize music tracks into genres like rock, jazz, or classical with 85%+ accuracy."
+  },
+  {
+    "title": "Feedback Collection System",
+    "description": "Developed and implemented a student feedback system using Java Spring Boot, allowing students to submit and view course evaluations."
+  },
+  {
+    "title": "Dynamic Chatbot for Farm2Bag",
+    "description": "Worked on a project to develop a chatbot that dynamically utilizes website data to assist users in finding products and providing recommendations. Implemented data preprocessing and natural language processing."
+  },
+  {
+    "title": "Attendance Automation System",
+    "description": "Developed an attendance automation system using the MERN stack, reducing the manual attendance process from 1.5 hours to just 10 minutes. Implemented efficient data handling, real-time updates, and a user-friendly interface to streamline attendance tracking."
+  },
+  {
+    "title": "Fruit and Vegetable Identifier",
+    "description": "Built a real-time fruit and vegetable recognition system using Flask, Groq LLM, and image embeddings to identify fruits or vegetables from uploaded images. Integrated LLM-based visual inference with semantic similarity for accurate classification from a predefined label set."
+  },
+  {
+    "title": "Visualizing Math– AI for Learning",
+    "description": "Built a personalized math tutor chatbot using NLP and adaptive learning algorithms. The system evaluates student responses to customize lesson difficulty, generates dynamic visualizations of equations, and tracks progress to optimize learning paths in real-time."
+  },
+  {
+    "title": "DCGRAM– Instagram Clone",
+    "description": "A fully functional social media platform with comments, follower system, and secure login – replicating core Instagram features using the MERN stack."
+  },
+  {
+    "title": "AI Study Buddy",
+    "description": "A smart scheduling assistant that sets reminders for assignments/exams via Telegram and web app, with Q&A capabilities using educational content databases."
+  },
+  {
+    "title": "AI Stock Portfolio Manager",
+    "description": "Analyzes investment portfolios by processing CSV exports from brokerages, generates performance charts, and provides AI-generated insights using market data and Groq’s LLM."
+  }
+],
     interests: ["Web Development", "Machine Learning", "Animation", "Video Editing"],
     certifications: [
       "MongoDB Associate Developer",
-      "Ethical Hacking - NPTEL (2024)"
+      "Ethical Hacking - NPTEL"
     ],
     achievements: [
-      {
-        title: "2nd Place",
-        description: "2023 Academic Excellence Award - Kongu Vellalar Trust"
-      },
-      {
-        title: "1st Place",
-        description: "Hacksphere 2025 (24hr Hackathon) - AI Coding Club"
-      },
-      {
-        title: "3rd Place",
-        description: "AUTONIX 2024 Paper Presentation (KEC College)"
-      },
-      {
-        title: "1st Place",
-        description: "PRODOTHON 2025 Paper Presentation (PSG College)"
-      },
-      {
-        title: "1st Place",
-        description: "ENVISTAS 2025 Paper Presentation (KEC College)"
-      }
-    ],
-    contact: [
-      {
-        label: "Phone",
-        value: "+91 93601 77805",
-        link: "https://wa.me/919360177805"
-      },
-      {
-        label: "Email",
-        value: "vikymahendiran123@gmail.com",
-        link: "https://mail.google.com/mail/?view=cm&fs=1&to=vikymahendiran123@gmail.com"
-      },
-      {
-        label: "LinkedIn",
-        value: "linkedin.com/in/vijayakanth-m",
-        link: "https://www.linkedin.com/in/vijayakanth-m-7b7767312/"
-      },
-      {
-        label: "GitHub",
-        value: "github.com/vijayakanth06",
-        link: "https://github.com/vijayakanth06"
-      }
+      "Secured 2nd Place in 2023 Academic Excellence Award - Kongu Vellalar Trust",
+      "Secured 1st place in Hacksphere 2025(24hr Hackathon) - AI Coding club",
+      "Secured 3rd place in AUTONIX 2024 Paper Presentation(KEC college)",
+      "Secured 1st Place in PRODOTHON 2025 Paper Presentation(PSG college)",
+      "Secured 1st place in ENVISTAS 2025 Paper Presentation(KEC college)",
+      "Awarded Best Presentation and Best Team Collaboration in BYTS INDIA HACKATHON (BIH) 1.0 - Artificial Intelligence (KEC college)"
     ]
   };
 
   return (
     <div className="resume-container">
-      {/* Header Section */}
+        {/* Header Section */}
       <header className="resume-header">
         <div className="header-content">
           <h1 className="resume-name">{resumeData.header.name}</h1>
@@ -139,7 +122,6 @@ const RESUME = () => {
           <img src={resumeData.header.image} alt="Profile" className="profile-image"/>
         </div>
       </header>
-
       {/* Objective Section */}
       <section className="resume-section">
         <h2 className="section-title">OBJECTIVE</h2>
@@ -158,9 +140,7 @@ const RESUME = () => {
               <p className="education-institution">{edu.institution}</p>
               <p className="education-details">{edu.details}</p>
               {edu.coursework && (
-                <p className="education-coursework">
-                  <span className="detail-label">Coursework:</span> {edu.coursework}
-                </p>
+                <p className="education-coursework">{edu.coursework}</p>
               )}
             </div>
           ))}
@@ -217,7 +197,7 @@ const RESUME = () => {
             <div key={`exp-${index}`} className="experience-item">
               <div className="experience-header">
                 <h3 className="experience-role">{exp.role}</h3>
-                <span className="experience-duration">{exp.duration}</span>
+                <span className="experience-company">{exp.company}</span>
               </div>
               <ul className="experience-points">
                 {exp.points.map((point, i) => (
@@ -256,7 +236,7 @@ const RESUME = () => {
 
       {/* Certifications Section */}
       <section className="resume-section">
-        <h2 className="section-title">CERTIFICATIONS</h2>
+        <h2 className="section-title">CERTIFICATE</h2>
         <div className="certifications-list">
           {resumeData.certifications.map((cert, index) => (
             <div key={`cert-${index}`} className="certification-item">
@@ -267,37 +247,18 @@ const RESUME = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="resume-section">
-        <h2 className="section-title">ACHIEVEMENTS</h2>
-        <div className="achievements-grid">
-          {resumeData.achievements.map((achievement, index) => (
-            <div key={`achievement-${index}`} className="achievement-card">
-              <h3 className="achievement-title">{achievement.title}</h3>
-              <p className="achievement-description">{achievement.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="resume-section">
-        <h2 className="section-title">CONTACT</h2>
-        <div className="contact-info">
-          {resumeData.contact.map((contact, index) => (
-            <div key={`contact-${index}`} className="contact-item">
-              <span className="contact-label">{contact.label}:</span>
-              <a 
-                href={contact.link} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="contact-link"
-              >
-                {contact.value}
-              </a>
-            </div>
-          ))}
-        </div>
-      </section>
+<section className="resume-section">
+  <h2 className="section-title">ACHIVEMENTS</h2>
+  <div className="achievements-list">
+    <ul className="achievement-items">
+      {resumeData.achievements.map((achievement, index) => (
+        <li key={`achievement-${index}`} className="achievement-item">
+          {achievement}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
     </div>
   );
 };

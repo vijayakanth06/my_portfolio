@@ -1,116 +1,110 @@
 import React from 'react';
 import '../styles/Skills.css';
-import { 
-  SiC, 
-  SiPython, 
+import {
+  SiC,
+  SiPython,
   SiJavascript,
-  SiHtml5, 
+  SiHtml5,
   SiCss3,
   SiGit,
   SiGithub,
   SiMysql,
   SiMongodb,
-  SiBlender
+  SiBlender,
+  SiReact,
+  SiNodedotjs,
+  SiExpress
 } from 'react-icons/si';
-import { 
-  FaJava,
+import {
   FaLanguage,
   FaUsers,
   FaComments,
-  FaLightbulb
+  FaLightbulb,
+  FaJava
 } from 'react-icons/fa';
+
+const technicalSkills = [
+  { name: 'C', icon: <SiC style={{ color: '#A8B9CC' }} /> },
+  { name: 'Python', icon: <SiPython style={{ color: '#3776AB' }} /> },
+  { name: 'Java', icon: <FaJava style={{ color: '#007396' }} /> },
+  { name: 'HTML', icon: <SiHtml5 style={{ color: '#E34F26' }} /> },
+  { name: 'CSS', icon: <SiCss3 style={{ color: '#1572B6' }} /> },
+  { name: 'JavaScript', icon: <SiJavascript style={{ color: '#F7DF1E' }} /> },
+  { name: 'React.js', icon: <SiReact style={{ color: '#61DAFB' }} /> },
+  { name: 'Node.js', icon: <SiNodedotjs style={{ color: '#339933' }} /> },
+  { name: 'MySQL', icon: <SiMysql style={{ color: '#4479A1' }} /> },
+  { name: 'MongoDB', icon: <SiMongodb style={{ color: '#47A248' }} /> },
+  { name: 'Express.js', icon: <SiExpress style={{ color: '#000000' }} /> }
+];
+
+const tools = [
+  { name: 'Git', icon: <SiGit style={{ color: '#F05032' }} /> },
+  { name: 'GitHub', icon: <SiGithub style={{ color: '#6e5494' }} /> },
+  { name: 'Blender', icon: <SiBlender style={{ color: '#F5792A' }} /> }
+];
+
+const softSkills = [
+  { name: 'Communication', icon: <FaComments /> },
+  { name: 'Teamwork', icon: <FaUsers /> },
+  { name: 'Problem-solving', icon: <FaLightbulb /> }
+];
+
+const languages = [
+  { name: 'English', icon: <FaLanguage /> },
+  { name: 'Tamil', icon: <FaLanguage /> }
+];
 
 const Skills = () => {
   return (
     <section className="skills-section" id="skills">
       <h2 className="skills-heading">SKILLS</h2>
-      
+
       <div className="skills-container">
         <div className="skills-category">
           <h3 className="skills-subheading">Technical Skills</h3>
           <div className="skills-grid">
-            <div className="skill-item">
-              <SiC className="skill-icon" style={{ color: '#A8B9CC' }} />
-              <span>C</span>
-            </div>
-            <div className="skill-item">
-              <SiPython className="skill-icon" style={{ color: '#3776AB' }} />
-              <span>Python</span>
-            </div>
-            <div className="skill-item">
-              <FaJava className="skill-icon" style={{ color: '#007396' }} />
-              <span>Java</span>
-            </div>
-            <div className="skill-item">
-              <SiHtml5 className="skill-icon" style={{ color: '#E34F26' }} />
-              <span>HTML</span>
-            </div>
-            <div className="skill-item">
-              <SiCss3 className="skill-icon" style={{ color: '#1572B6' }} />
-              <span>CSS</span>
-            </div>
-            <div className="skill-item">
-              <SiJavascript className="skill-icon" style={{ color: '#F7DF1E' }} />
-              <span>JavaScript</span>
-            </div>
+            {technicalSkills.map((skill, index) => (
+              <div className="skill-item" key={index}>
+                <div className="skill-icon">{skill.icon}</div>
+                <span>{skill.name}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="skills-category">
           <h3 className="skills-subheading">Tools</h3>
           <div className="skills-grid">
-            <div className="skill-item">
-              <SiGit className="skill-icon" style={{ color: '#F05032' }} />
-              <span>Git</span>
-            </div>
-            <div className="skill-item">
-              <SiGithub className="skill-icon" style={{ color: '#6e5494' }} />
-              <span>GitHub</span>
-            </div>
-            <div className="skill-item">
-              <SiMysql className="skill-icon" style={{ color: '#4479A1' }} />
-              <span>MySQL</span>
-            </div>
-            <div className="skill-item">
-              <SiMongodb className="skill-icon" style={{ color: '#47A248' }} />
-              <span>MongoDB</span>
-            </div>
-            <div className="skill-item">
-              <SiBlender className="skill-icon" style={{ color: '#F5792A' }} />
-              <span>Blender</span>
-            </div>
+            {tools.map((tool, index) => (
+              <div className="skill-item" key={index}>
+                <div className="skill-icon">{tool.icon}</div>
+                <span>{tool.name}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="skills-category">
           <h3 className="skills-subheading">Soft Skills</h3>
           <div className="soft-skills-list">
-            <div className="soft-skill-item">
-              <FaComments className="soft-skill-icon" />
-              <span>Communication</span>
-            </div>
-            <div className="soft-skill-item">
-              <FaUsers className="soft-skill-icon" />
-              <span>Teamwork</span>
-            </div>
-            <div className="soft-skill-item">
-              <FaLightbulb className="soft-skill-icon" />
-              <span>Problem Solving</span>
-            </div>
+            {softSkills.map((skill, index) => (
+              <div className="soft-skill-item" key={index}>
+                <div className="soft-skill-icon">{skill.icon}</div>
+                <span>{skill.name}</span>
+              </div>
+            ))}
           </div>
         </div>
 
         <div className="skills-category">
           <h3 className="skills-subheading">Languages</h3>
           <div className="language-list">
-            <div className="language-item">
-              <FaLanguage className="language-icon" />
-              <span>English</span>
-            </div>
-            <div className="language-item">
-              <FaLanguage className="language-icon" />
-              <span>Tamil</span>
-            </div>
+            {languages.map((lang, index) => (
+              <div className="language-item" key={index}>
+                <div className="language-icon">{lang.icon}</div>
+                <span>{lang.name}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

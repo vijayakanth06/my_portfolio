@@ -76,9 +76,6 @@ const Projects = () => {
   "technologies": ["Flask", "OpenCV", "Groq", "LLaMA-3", "HTML", "JavaScript"],
   "githubLink": "https://github.com/vijayakanth06/fruits_vegetable_predictor_using_webcam"
 }
-
-
-
   ];
 
   return (

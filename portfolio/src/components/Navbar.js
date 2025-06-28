@@ -14,14 +14,14 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['home', 'skills', 'education', 'achievements', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 120;
 
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveSection(section);
             break;
@@ -44,7 +44,7 @@ const Navbar = () => {
       behavior: 'smooth'
     });
     setActiveSection('home');
-    window.history.replaceState({}, '', window.location.pathname);
+    window.history.replaceState({}, '', '/');
   };
 
  const handleNavClick = (path) => {
@@ -54,7 +54,8 @@ const Navbar = () => {
   if (location.pathname !== path) {
     navigate(path, { state: { scrollToTop: true } });
   } else {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
+    window.location.reload();
   }
 };
 
@@ -63,8 +64,9 @@ const Navbar = () => {
     setIsMenuOpen(false);
     setActiveSection(id);
     
+    setTimeout(() => {
     if (location.pathname !== '/') {
-      navigate('/', { state: { scrollTo: id } });
+      navigate('/', { replace: false, state: { scrollTo: id, timestamp: Date.now() } });
     } else {
       const element = document.getElementById(id);
       if (element) {
@@ -72,6 +74,7 @@ const Navbar = () => {
       }
       window.history.replaceState({}, '', `#${id}`);
     }
+  }, 350); 
   };
 
   const isActivePage = (path) => {
