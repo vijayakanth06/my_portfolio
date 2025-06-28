@@ -258,6 +258,15 @@ html, body {
   box-shadow: 0 0 25px #da0c1df0;
 }
 
+footer {
+  background-color: black;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 15px;
+  width: 100%;
+}
 /* Animations */
 @keyframes home-cursor {
   to {

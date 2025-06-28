@@ -92,6 +92,9 @@ const HOME = () => {
       <Projects id="projects" />
       <Achievements id="achievements" />
       <Contact id="contact" />
+      <footer className="footer">
+        © 2025 Vijayakanth M. Built with React.
+      </footer>
 
       {showScrollButton && (
         <button 
