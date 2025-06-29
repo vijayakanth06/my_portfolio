@@ -1,5 +1,6 @@
 import { createContext, useState, useEffect } from 'react';
-import { getData, putData } from './db';
+import { database } from './firebase';
+import { ref, onValue, set, get } from 'firebase/database';
 
 export const LikeContext = createContext();
 
@@ -9,31 +10,58 @@ export const LikeProvider = ({ children }) => {
   const [userVote, setUserVote] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Get or generate a unique user ID
+  const getUserId = () => {
+    let userId = localStorage.getItem('userId');
+    if (!userId) {
+      userId = Math.random().toString(36).substring(2);
+      localStorage.setItem('userId', userId);
+    }
+    return userId;
+  };
+
   useEffect(() => {
-    const loadData = async () => {
-      try {
-        const data = await getData('homepage');
-        if (data) {
-          setLikes(data.likes || 0);
-          setDislikes(data.dislikes || 0);
-          setUserVote(data.userVote || null);
-        }
-      } catch (error) {
-        console.error('Error loading data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    loadData();
+    const userId = getUserId();
+    const votesRef = ref(database, 'votes');
+    const userVoteRef = ref(database, `userVotes/${userId}`);
+
+    // Fetch initial counts
+    get(votesRef).then((snapshot) => {
+      const data = snapshot.val() || { likes: 0, dislikes: 0 };
+      setLikes(data.likes);
+      setDislikes(data.dislikes);
+    });
+
+    // Fetch user's vote
+    get(userVoteRef).then((snapshot) => {
+      setUserVote(snapshot.val() || null);
+      setLoading(false);
+    });
+
+    // Set up realtime listener for vote counts
+    const unsubscribe = onValue(votesRef, (snapshot) => {
+      const data = snapshot.val() || { likes: 0, dislikes: 0 };
+      setLikes(data.likes);
+      setDislikes(data.dislikes);
+    });
+
+    return () => unsubscribe();
   }, []);
 
-  const updateStorage = async (newLikes, newDislikes, newUserVote) => {
-    await putData({
-      id: 'homepage',
-      likes: newLikes,
-      dislikes: newDislikes,
-      userVote: newUserVote
-    });
+  const updateVotes = async (newLikes, newDislikes, newUserVote) => {
+    const userId = getUserId();
+    try {
+      // Update counts
+      await set(ref(database, 'votes'), {
+        likes: newLikes,
+        dislikes: newDislikes
+      });
+
+      // Update user's vote
+      await set(ref(database, `userVotes/${userId}`), newUserVote);
+    } catch (error) {
+      console.error('Error updating votes:', error);
+    }
   };
 
   const handleLike = async () => {
@@ -52,10 +80,8 @@ export const LikeProvider = ({ children }) => {
       newUserVote = 'like';
     }
 
-    setLikes(newLikes);
-    setDislikes(newDislikes);
     setUserVote(newUserVote);
-    await updateStorage(newLikes, newDislikes, newUserVote);
+    await updateVotes(newLikes, newDislikes, newUserVote);
   };
 
   const handleDislike = async () => {
@@ -74,10 +100,8 @@ export const LikeProvider = ({ children }) => {
       newUserVote = 'dislike';
     }
 
-    setLikes(newLikes);
-    setDislikes(newDislikes);
     setUserVote(newUserVote);
-    await updateStorage(newLikes, newDislikes, newUserVote);
+    await updateVotes(newLikes, newDislikes, newUserVote);
   };
 
   if (loading) {
