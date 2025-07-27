@@ -223,7 +223,7 @@ html, body {
 }
 
 .like-btn {
-  background-color: #000000;
+  background-color: #4CAF50;
   border: 0.1rem solid #4CAF50;
   color: #333;
 }
@@ -241,7 +241,7 @@ html, body {
 }
 
 .dislike-btn {
-  background-color: #000000;
+  background-color: #da0c1df0;
   color: #333;
   border: 0.1rem solid #da0c1df0;
 }
@@ -368,8 +368,8 @@ footer {
   }
 
   .home-profile-img {
-    width: 50vw;
-    height: 70vw;
+    width: 66vw;
+    height: 77vw;
     margin: 1rem 1rem 1rem 4rem;
   }
 
@@ -409,13 +409,13 @@ footer {
   transition: all 0.3s ease;
 }
 .like-btn {
-  background-color: #000000;
+  background-color: #4CAF50;
   border: 0.1rem solid #4CAF50;
   color: #333;
   margin-left: 80px
 }
 .dislike-btn {
-  background-color: #000000;
+  background-color: #da0c1df0;
   color: #333;
   border: 0.1rem solid #da0c1df0;
 }
