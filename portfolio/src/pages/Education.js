@@ -15,8 +15,8 @@ const Education = () => {
           <div className="education-details">
             <h3 className="education-title">B.Tech - Artificial Intelligence and Machine Learning</h3>
             <p className="education-institution">Kongu Engineering College, Erode</p>
-            <p className="education-duration">Expected 2027 | CGPA: 8.72*</p>
-            <p className="education-coursework">Coursework: Python, JAVA, C, and JavaScript</p>
+            <p className="education-duration">Expected 2027 | CGPA: 8.62*</p>
+            <p className="education-coursework">Coursework: Python, JAVA, C, and JavaScript,Machine Learning, Deep Learning</p>
           </div>
         </div>
         

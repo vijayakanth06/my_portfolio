@@ -3,8 +3,7 @@ import '../styles/Achievements.css';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 
 const Achievements = () => {
-  const achievements = [
-    
+   const achievements = [
     {
       title: "2nd Place",
       date: "2023",
@@ -12,28 +11,48 @@ const Achievements = () => {
     },
     {
       title: "1st Place",
-      date: "2025",
+      date: "Feb 2025",
       description: "Hacksphere 2025 (24hr Hackathon) - AI Coding Club"
     },
     {
       title: "3rd Place",
-      date: "2024",
+      date: "Oct 2024",
       description: "AUTONIX 2024 Paper Presentation (KEC College)"
     },
     {
       title: "1st Place",
-      date: "2025",
+      date: "Mar 2025",
       description: "PRODOTHON 2025 Paper Presentation (PSG College)"
     },
     {
       title: "1st Place",
-      date: "2025",
+      date: "Feb 2025",
       description: "ENVISTAS 2025 Paper Presentation (KEC College)"
     },
-     {
-      title: "5th Place",
-      date: "2025",
-      description: "Awarded Best Presentation and Best Team Collaboration in BYTS INDIA HACKATHON (BIH) 1.0- Artificial Intelligence (KEC college)."
+    {
+      title: "Best Presentation & Best Team Collaboration",
+      date: "Apr 2025",
+      description: "BYTS INDIA HACKATHON (BIH) 1.0 – Artificial Intelligence (KEC College)"
+    },
+    {
+      title: "3rd Place",
+      date: "Sep 2025",
+      description: "CognitiveX GenAI 24hr Hackathon - IBM Skill Build"
+    },
+    {
+      title: "2nd Place",
+      date: "Jul 2025",
+      description: "Ideathon’25 Project Presentation - KEC College"
+    },
+    {
+      title: "1st Place",
+      date: "Sep 2025",
+      description: "SIH Internal Hackathon 2025 (KEC College)"
+    },
+    {
+      title: "Top 4 Finalist",
+      date: "Oct 2025",
+      description: "CTAI – CTD International Level Hackathon at IIT Bombay (out of 80 teams)"
     }
   ];
 

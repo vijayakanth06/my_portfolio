@@ -60,8 +60,8 @@ const HOME = () => {
           
           <div className="home-navigation-buttons">
             <a 
-              href="Vijayakanth_resume_2025_July_end.pdf" 
-              download="Vijayakanth_resume_2025_July_end.pdf" 
+              href="Vijayakanth_resume.pdf" 
+              download="Vijayakanth_resume.pdf" 
               className="home-btn"
             >
               Download Resume

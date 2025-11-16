@@ -40,7 +40,6 @@ const technicalSkills = [
 const tools = [
   { name: 'Git', icon: <SiGit style={{ color: '#F05032' }} /> },
   { name: 'GitHub', icon: <SiGithub style={{ color: '#6e5494' }} /> },
-  { name: 'Blender', icon: <SiBlender style={{ color: '#F5792A' }} /> }
 ];
 
 const softSkills = [

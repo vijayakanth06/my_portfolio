@@ -10,91 +10,128 @@ import aistudybuddy from '../assets/aistudybuddy.png';
 import stockanalyzer from '../assets/stockanalyzer.png';
 import fruitVegImage from '../assets/fruit-veg-recognition.png';
 import codebase from '../assets/codebase.png';
+import protube from '../assets/protube.png';
+import clausewise from '../assets/clausewise.png';
+import material from '../assets/material.png';
+import fabric from '../assets/fabric.png';
 import { FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
-  const projects = [
+const projects = [
   {
     title: "Refined CAPTCHA",
-    description: "An advanced bot detection system that replaces traditional CAPTCHAs with machine learning analyzing user interaction patterns (mouse movements, typing speed) to distinguish humans from bots while being less frustrating for users.",
-    duration: "Aug 2024 - Nov 2024",
+    description: "An advanced bot detection system that replaces traditional CAPTCHAs with machine learning analyzing user interaction patterns (mouse movements, typing speed) to distinguish humans from bots.",
+    duration: "Jul 2025 - Oct 2025",
     image: captchaImage,
-    technologies: ["React", "Node.js", "Machine Learning"],
-    githubLink: "https://github.com/vijayakanth06/imagecaptcha-v1"
+    technologies: ["Machine Learning", "Behavior Analysis", "React", "Node.js", "User Interaction", "Security"],
+    githubLink: "https://github.com/dummy/refined-captcha"
   },
   {
     title: "Classify Songs by Genre",
-    description: "A machine learning model that analyzes audio features (tempo, frequency spectrum) to automatically categorize music tracks into genres like rock, jazz, or classical with 85%+ accuracy.",
+    description: "A machine learning model that analyzes audio features to automatically categorize music tracks into genres like rock, jazz, or classical with 85%+ accuracy.",
     duration: "Aug 2024 - Dec 2024",
     image: musicImage,
-    technologies: ["Python", "Machine Learning", "Audio Processing"],
+    technologies: ["Python", "Audio Processing", "Feature Extraction", "ML Model", "Classification", "Signal Analysis"],
     githubLink: "https://github.com/vijayakanth06/Classify-songs-based-on-genre"
   },
   {
     title: "Feedback Collection System",
-    description: "Developed and implemented a student feedback system using Java Spring Boot, allowing students to submit and view course evaluations.",
+    description: "Developed a student feedback system using Java Spring Boot, allowing students to submit and view course evaluations.",
     duration: "Aug 2024 - Dec 2024",
     image: feedbackImage,
-    technologies: ["Java", "Spring Boot", "MySQL"],
+    technologies: ["Java", "Spring Boot", "MySQL", "Backend API", "Web Forms"],
     githubLink: "https://github.com/vijayakanth06/FeedbackCollectionSystem"
   },
   {
     title: "Dynamic Chatbot for Farm2Bag",
-    description: "Worked on a project to develop a chatbot that dynamically utilizes website data to assist users in finding products and providing recommendations. Implemented data preprocessing, natural language processing.",
+    description: "A chatbot that dynamically utilizes website data to assist users in finding products and giving recommendations using preprocessing and NLP.",
     duration: "Feb 2025 - Feb 2025",
     image: chatbotImage,
-    technologies: ["Python", "NLP", "Chatbot"],
+    technologies: ["NLP", "Python", "Data Scraping", "Recommendation Engine", "Chatbot"],
     githubLink: "https://github.com/vijayakanth06/Vite_hacksphere_2025"
   },
   {
     title: "Attendance Automation System",
-    description: "Developed an attendance automation system using the MERN stack, reducing the manual attendance process from 1.5 hours to just 10 minutes. Implemented efficient data handling, real-time updates, and a user-friendly interface to streamline attendance tracking.",
+    description: "An attendance automation system using MERN stack that reduced attendance time from 1.5 hours to 10 minutes with real-time updates.",
     duration: "Feb 2025 - May 2025",
     image: attendanceImage,
-    technologies: ["MERN Stack", "MongoDB", "Real-time Updates"],
+    technologies: ["MERN", "MongoDB", "Real-time Sync", "React UI", "Automation"],
     githubLink: "https://github.com/vijayakanth06/Attendance_Automation"
   },
   {
     title: "Fruit and Vegetable Identifier",
-    description: "Built a real-time fruit and vegetable recognition system using Flask, Groq LLM, and image embeddings to identify fruits or vegetables from uploaded images. Integrated LLM-based visual inference with semantic similarity for accurate classification from a predefined label set.",
+    description: "A real-time recognition system using Flask, Groq LLM, and image embeddings to identify fruits or vegetables from uploaded images.",
     duration: "Mar 2025 - May 2025",
     image: fruitVegImage,
-    technologies: ["Flask", "OpenCV", "Groq", "LLaMA-3", "HTML", "JavaScript"],
+    technologies: ["Flask", "OpenCV", "Groq API", "Embeddings", "LLM Vision"],
     githubLink: "https://github.com/vijayakanth06/fruits_vegetable_predictor_using_webcam"
   },
   {
     title: "Visualizing Math – AI for Learning",
-    description: "Built a personalized math tutor chatbot using NLP and adaptive learning to adjust difficulty, visualize equations, and track progress. Integrated smart scheduling and Q&A via Telegram/web app for assignment and exam reminders.",
+    description: "A personalized math tutor chatbot using NLP, adaptive learning, and equation visualization with Telegram/web integration.",
     duration: "Apr 2025 - Apr 2025",
     image: aistudybuddy,
-    technologies: ["React", "Express.js", "Python", "Flask", "Telegram Bot"],
+    technologies: ["NLP", "Adaptive Learning", "Visualization", "Chatbot", "Telegram API"],
     githubLink: "https://github.com/vijayakanth06/Bytes_Hackathon"
   },
   {
     title: "DCGRAM – Instagram Clone",
-    description: "A fully functional social media platform with comments, followers system, and secure login — replicating core Instagram features with MERN stack.",
+    description: "A fully functional social media platform replicating Instagram features using MERN stack.",
     duration: "Jan 2025 - Apr 2025",
     image: instaclone,
-    technologies: ["React", "Node.js", "Express.js", "MongoDB", "JWT"],
+    technologies: ["React", "Node.js", "MongoDB", "Authentication", "Social Feed"],
     githubLink: "https://github.com/vijayakanth06/instaclone"
   },
   {
     title: "AI Code Vulnerability Detector",
-    description: "Developed an AI-powered code vulnerability detector with an online editor, integrated chatbot, and Telegram bot support. The system answers coding queries, detects vulnerabilities in real time, and provides customized, secure code suggestions.",
+    description: "AI-powered code vulnerability detector with an online editor, chatbot, and Telegram support providing secure coding suggestions.",
     duration: "May 2025 - May 2025",
-    image: codebase, 
-    technologies: ["AI", "Security", "JavaScript", "Telegram Bot"],
-    githubLink: "https://github.com/Umadevim-ML/aicodebase"
+    image: codebase,
+    technologies: ["AI Analysis", "Security Scanner", "Web Editor", "Chatbot", "ML Models"],
+    githubLink: "https://github.com/dummy/aicodevulnerability"
   },
   {
     title: "AI Stock Portfolio Manager",
-    description: "Analyzes investment portfolios by processing CSV exports from brokerages, generates performance charts, and provides AI-generated insights using market data and Groq’s LLM.",
+    description: "Analyzes portfolio CSVs, generates performance charts, and provides AI-based investment insights using Groq LLM.",
     duration: "May 2025 - Jun 2025",
     image: stockanalyzer,
-    technologies: ["React", "Flask", "Python", "Pandas", "Matplotlib", "Groq API", "Machine Learning"],
+    technologies: ["Flask", "Pandas", "Charting", "Groq LLM", "Financial Analysis"],
     githubLink: "https://github.com/vijayakanth06/AI_Stock_Analyzer"
+  },
+  {
+    title: "ProTube – Productive Video Platform",
+    description: "A distraction-free video platform that blocks shorts and ads, showing only useful learning content.",
+    duration: "Jul 2025 - Aug 2025",
+    image: protube,
+    technologies: ["React", "Filtering Engine", "API Integration", "Video Player", "Productivity Tools"],
+    githubLink: "https://github.com/vijayakanth06/protube"
+  },
+  {
+    title: "ClauseWise – AI Legal Document Analyzer",
+    description: "An AI-powered legal assistant that simplifies clauses, extracts entities, and classifies documents using IBM Granite and Ollama.",
+    duration: "Sep 2025 - Sep 2025",
+    image: clausewise,
+    technologies: ["LLM", "Granite Model", "Document Parsing", "Entity Extraction", "Ollama"],
+    githubLink: "https://github.com/vijayakanth06/genai_hackathon_ibm"
+  },
+  {
+    title: "Fabric Defect Detection System",
+    description: "Trained a CNN model for real-time fabric defect detection through webcam using textile defect dataset.",
+    duration: "Nov 2024 - Dec 2024",
+    image: fabric,
+    technologies: ["CNN", "Computer Vision", "Dataset Training", "OpenCV", "Real-time Detection"],
+    
+  },
+  {
+    title: "Material & Quantity Detection System",
+    description: "AI model to predict construction materials and shipped quantities with 85% accuracy using text, numeric, and metadata features.",
+    duration: "Sep 2025 - Oct 2025",
+    image: material,
+    technologies: ["Regression Models", "Feature Engineering", "ML Pipeline", "Data Processing", "Prediction"],
+    githubLink: "https://github.com/vijayakanth06/ctd"
   }
 ];
+
 
 
   return (
@@ -115,14 +152,17 @@ const Projects = () => {
                   <span key={i} className="tech-tag">{tech}</span>
                 ))}
               </div>
-              <a 
-                href={project.githubLink} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="github-button"
-              >
-                <FaGithub className="github-icon" /> View on GitHub
-              </a>
+              {project.githubLink && (
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="github-button"
+                >
+                  <FaGithub className="github-icon" /> View on GitHub
+                </a>
+              )}
+
             </div>
           </div>
         ))}
