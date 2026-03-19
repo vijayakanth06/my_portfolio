@@ -1,135 +1,80 @@
 /* ================================================
-   SKILLS SECTION
+   SKILLS — Glassmorphism cards + glow pills
    ================================================ */
 .skills-section {
-  padding: var(--space-section) 0;
-  max-width: var(--max-width);
+  padding: var(--s-section) 0;
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding-left: var(--space-3xl);
-  padding-right: var(--space-3xl);
-}
-
-.skills-heading {
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-2xl);
-  text-align: center;
-}
-
-.skills-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-}
-
-.skills-category {
-  background: var(--surface);
-  border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
-  padding: var(--space-lg);
-  box-shadow: var(--shadow-whisper);
-  transition: box-shadow 200ms ease, background 200ms ease;
-}
-
-.skills-category:hover {
-  box-shadow: var(--shadow-soft);
-  background: var(--surface);
-}
-
-.skills-subheading {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--heat-100);
-  margin-bottom: var(--space-md);
-  padding-bottom: var(--space-sm);
-  border-bottom: 1px solid var(--border-faint);
+  padding-left: var(--s-8);
+  padding-right: var(--s-8);
 }
 
 .skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--s-5);
+}
+
+.skill-card {
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--r-lg);
+  padding: var(--s-6);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 300ms ease, transform 300ms ease;
+}
+.skill-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.skill-card-title {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--heat);
+  margin-bottom: var(--s-4);
+  padding-bottom: var(--s-2);
+  border-bottom: 1px solid var(--border-faint);
+}
+
+.skill-pills {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-sm);
+  gap: var(--s-2);
 }
 
-.skill-item {
-  display: flex;
+.skill-pill {
+  display: inline-flex;
   align-items: center;
-  gap: var(--space-sm);
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-faint);
-  background: var(--bg-base);
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  border: 1px solid var(--border);
+  background: var(--surface);
   font-size: 13px;
   font-weight: 450;
-  color: var(--text-primary);
+  color: var(--text-1);
   transition: all 200ms ease;
+  cursor: default;
 }
-
-.skill-item:hover {
-  border-color: var(--heat-100);
-  background: rgba(250, 93, 25, 0.04);
+.skill-pill:hover {
+  border-color: var(--heat);
+  background: var(--heat-subtle);
+  color: var(--heat);
+  box-shadow: 0 0 12px var(--heat-glow);
   transform: translateY(-1px);
 }
-
-.skill-icon {
-  font-size: 16px;
+.skill-pill .icon {
+  font-size: 15px;
   display: flex;
-  align-items: center;
 }
 
-/* Soft skills, tools, languages */
-.soft-skills-list,
-.language-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.soft-skill-item,
-.language-item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-faint);
-  background: var(--bg-base);
-  font-size: 13px;
-  font-weight: 450;
-  color: var(--text-primary);
-  transition: all 200ms ease;
-}
-
-.soft-skill-item:hover,
-.language-item:hover {
-  border-color: var(--heat-100);
-  background: rgba(250, 93, 25, 0.04);
-  transform: translateY(-1px);
-}
-
-.soft-skill-icon,
-.language-icon {
-  font-size: 16px;
-  display: flex;
-  align-items: center;
-  color: var(--heat-100);
-}
-
-/* ── Responsive ── */
 @media (max-width: 768px) {
-  .skills-section {
-    padding: var(--space-3xl) var(--space-lg);
-  }
-
-  .skills-heading {
-    font-size: 28px;
-  }
-
-  .skills-container {
-    grid-template-columns: 1fr;
-  }
+  .skills-section { padding: var(--s-8) var(--s-5); }
+  .skills-grid { grid-template-columns: 1fr; }
 }

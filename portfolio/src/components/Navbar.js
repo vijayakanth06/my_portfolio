@@ -4,107 +4,82 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('hero');
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'skills', 'education', 'achievements', 'projects', 'contact'];
-      const scrollPosition = window.scrollY + 120;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetHeight = element.offsetHeight;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
+    const onScroll = () => {
+      setScrolled(window.scrollY > 40);
+      const sections = ['hero', 'about', 'skills', 'experience', 'education', 'achievements', 'projects', 'contact'];
+      const pos = window.scrollY + 150;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= pos && el.offsetTop + el.offsetHeight > pos) {
+          setActiveSection(id);
+          break;
         }
       }
     };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setActiveSection('home');
-    window.history.replaceState({}, '', '/');
-  };
-
-  const handleNavClick = (path) => {
-    setIsMenuOpen(false);
-    setActiveSection('home');
-    if (location.pathname !== path) {
-      navigate(path, { state: { scrollToTop: true } });
+  const scrollTo = (id, e) => {
+    e?.preventDefault();
+    setMenuOpen(false);
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: id, timestamp: Date.now() } });
     } else {
-      scrollToTop();
+      const el = document.getElementById(id);
+      el?.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  const handleSectionClick = (id, e) => {
+  const goHome = (e) => {
     e.preventDefault();
-    setIsMenuOpen(false);
-    setActiveSection(id);
-
-    setTimeout(() => {
-      if (location.pathname !== '/') {
-        navigate('/', { replace: false, state: { scrollTo: id, timestamp: Date.now() } });
-      } else {
-        const element = document.getElementById(id);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-        window.history.replaceState({}, '', `#${id}`);
-      }
-    }, 350);
+    setMenuOpen(false);
+    if (location.pathname !== '/') navigate('/');
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const isActivePage = (path) => location.pathname === path;
-  const isActiveSection = (sectionId) => activeSection === sectionId || window.location.hash === `#${sectionId}`;
-
   return (
-    <header className="navbar">
-      <Link
-        to="/"
-        className={`logo ${isActivePage('/') && !window.location.hash ? 'active' : ''}`}
-        onClick={(e) => { e.preventDefault(); handleNavClick('/'); }}
-      >
-        VIJAYAKANTH<span className="logo-dot">.</span>
+    <header className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <Link to="/" className="logo" onClick={goHome}>
+        VIJAYAKANTH<span className="logo-dot">.M</span>
       </Link>
 
-      <button className="mobile-menu-btn" onClick={toggleMenu} aria-label="Toggle menu">
-        {isMenuOpen ? <FaTimes className="menu-icon" /> : <FaBars className="menu-icon" />}
+      <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)} aria-label="Menu">
+        {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
-      <nav className={`nav-links ${isMenuOpen ? 'active' : ''}`}>
-        <Link
-          to="/"
-          className={`nav-link ${isActivePage('/') && !window.location.hash ? 'active' : ''}`}
-          onClick={(e) => { e.preventDefault(); handleNavClick('/'); }}
-        >
-          Home
-        </Link>
+      <nav className={`nav-links ${menuOpen ? 'open' : ''}`}>
+        {[
+          { id: 'about', label: 'About' },
+          { id: 'skills', label: 'Skills' },
+          { id: 'experience', label: 'Experience' },
+          { id: 'projects', label: 'Projects' },
+          { id: 'contact', label: 'Contact' },
+        ].map(({ id, label }) => (
+          <a
+            key={id}
+            href={`#${id}`}
+            className={`nav-link ${activeSection === id ? 'active' : ''}`}
+            onClick={(e) => scrollTo(id, e)}
+          >
+            {label}
+          </a>
+        ))}
         <Link
           to="/resume"
-          className={`nav-link ${isActivePage('/resume') ? 'active' : ''}`}
-          onClick={(e) => { e.preventDefault(); handleNavClick('/resume'); }}
+          className={`nav-link ${location.pathname === '/resume' ? 'active' : ''}`}
+          onClick={() => setMenuOpen(false)}
         >
           Resume
         </Link>
-        <a href="#skills" className={`nav-link ${isActiveSection('skills') ? 'active' : ''}`} onClick={(e) => handleSectionClick('skills', e)}>Skills</a>
-        <a href="#education" className={`nav-link ${isActiveSection('education') ? 'active' : ''}`} onClick={(e) => handleSectionClick('education', e)}>Education</a>
-        <a href="#achievements" className={`nav-link ${isActiveSection('achievements') ? 'active' : ''}`} onClick={(e) => handleSectionClick('achievements', e)}>Achievements</a>
-        <a href="#projects" className={`nav-link ${isActiveSection('projects') ? 'active' : ''}`} onClick={(e) => handleSectionClick('projects', e)}>Projects</a>
-        <a href="#contact" className={`nav-link ${isActiveSection('contact') ? 'active' : ''}`} onClick={(e) => handleSectionClick('contact', e)}>Contact</a>
-        <a href="Vijayakanth_resume.pdf" download="Vijayakanth_resume.pdf" className="nav-resume-btn">
+        <a href="Vijayakanth_resume.pdf" download className="nav-cta">
           Download CV
         </a>
       </nav>

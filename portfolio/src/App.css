@@ -1,52 +1,91 @@
 /* ================================================
-   APP LAYOUT
+   APP LAYOUT — V3
    ================================================ */
 .home-app {
   min-height: 100vh;
   position: relative;
 }
 
-/* Footer */
-.footer {
-  text-align: center;
-  padding: var(--space-xl) var(--space-lg);
-  font-size: 14px;
-  color: var(--text-muted);
-  border-top: 1px solid var(--border-faint);
-  background: var(--bg-base);
+/* ── ASCII Matrix Blocks (decorative) ── */
+.ascii-block {
+  position: fixed;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--text-3);
+  white-space: pre;
+  pointer-events: none;
+  z-index: 0;
+  animation: asciiShimmer 4s ease-in-out infinite;
+  user-select: none;
 }
 
-/* Scroll to top FAB */
-.scroll-to-top {
+.ascii-block--left {
+  left: 16px;
+  top: 40%;
+  animation-delay: 0s;
+}
+
+.ascii-block--right {
+  right: 16px;
+  top: 55%;
+  animation-delay: 2s;
+}
+
+.ascii-block--top {
+  right: 120px;
+  top: 15%;
+  animation: asciiFloat 6s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+@media (max-width: 1024px) {
+  .ascii-block { display: none; }
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: var(--s-6) var(--s-5);
+  font-size: 13px;
+  color: var(--text-3);
+  border-top: 1px solid var(--border-faint);
+}
+
+.footer a {
+  color: var(--heat);
+  font-weight: 500;
+}
+
+/* ── Scroll To Top FAB ── */
+.scroll-top {
   position: fixed;
-  bottom: 32px;
-  right: 32px;
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  background: var(--heat-100);
+  bottom: 28px;
+  right: 28px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--r-full);
+  background: var(--heat);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  box-shadow: var(--shadow-prominent);
-  transition: background 150ms ease, transform 150ms ease;
+  font-size: 16px;
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transition: all 200ms ease;
   z-index: 90;
-  border: none;
-  cursor: pointer;
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
 }
 
-.scroll-to-top:hover {
+.scroll-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scroll-top:hover {
   background: var(--heat-hover);
-  transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-  .scroll-to-top {
-    bottom: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
-  }
+  transform: translateY(-3px) scale(1.05);
 }

@@ -1,210 +1,94 @@
 /* ================================================
-   ACHIEVEMENTS CAROUSEL
+   ACHIEVEMENTS — Horizontal scrolling ticker
    ================================================ */
-.achievements-carousel {
-  padding: var(--space-section) 0;
-  max-width: var(--max-width);
+.achievements-section {
+  padding: var(--s-section) 0;
+  max-width: var(--max-w);
   margin: 0 auto;
-  padding-left: var(--space-3xl);
-  padding-right: var(--space-3xl);
+  padding-left: var(--s-8);
+  padding-right: var(--s-8);
   overflow: hidden;
 }
 
-.carousel-title {
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--text-primary);
-  letter-spacing: -0.02em;
-  margin-bottom: var(--space-2xl);
-  text-align: center;
-}
-
-.carousel-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: var(--space-md);
-}
-
-.carousel-track {
-  flex: 1;
-  position: relative;
-  min-height: 220px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.carousel-slide {
-  position: absolute;
-  width: 100%;
-  opacity: 0;
-  transform: translateX(60px);
-  transition: all 400ms ease;
-  pointer-events: none;
-}
-
-.carousel-slide.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.carousel-slide.prev {
-  opacity: 0;
-  transform: translateX(-60px);
-}
-
-.carousel-slide.next {
-  opacity: 0;
-  transform: translateX(60px);
-}
-
-/* Achievement card */
-.achievement-card {
-  background: var(--surface);
-  border: 1px solid var(--border-faint);
-  border-radius: var(--radius-md);
-  padding: var(--space-2xl) var(--space-xl);
-  text-align: center;
-  box-shadow: var(--shadow-soft);
-  min-height: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-md);
-}
-
-.achievement-title {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--heat-100);
-  line-height: 1.2;
-}
-
-.achievement-date {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--text-faint);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  background: var(--bg-base);
-  padding: 4px 12px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-faint);
-}
-
-.achievement-description {
-  font-size: 16px;
-  color: var(--text-muted);
-  line-height: 1.5;
-  max-width: 500px;
-}
-
-.achievement-details summary {
-  cursor: pointer;
-  color: var(--heat-100);
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* Carousel nav buttons */
-.carousel-button {
-  flex-shrink: 0;
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border-muted);
-  background: var(--surface);
-  color: var(--text-primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  cursor: pointer;
-  transition: all 200ms ease;
-  box-shadow: var(--shadow-whisper);
-}
-
-.carousel-button:hover {
-  border-color: var(--heat-100);
-  color: var(--heat-100);
-  box-shadow: var(--shadow-soft);
-}
-
-/* Dot indicators */
-.carousel-indicators {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-sm);
-  margin-top: var(--space-xl);
-}
-
-.indicator {
-  width: 8px;
-  height: 8px;
-  border-radius: var(--radius-full);
-  border: none;
-  background: var(--border-muted);
-  cursor: pointer;
-  transition: all 300ms ease;
-  padding: 0;
-  position: relative;
+.achievements-ticker-wrap {
   overflow: hidden;
+  position: relative;
+  padding: var(--s-4) 0;
 }
 
-.indicator.active {
-  width: 32px;
-  background: var(--heat-100);
-}
-
-/* Auto-play fill animation for active indicator */
-.achievements-carousel.autoplaying .indicator.active::after {
+/* Fade edges */
+.achievements-ticker-wrap::before,
+.achievements-ticker-wrap::after {
   content: '';
   position: absolute;
-  top: 0;
+  top: 0; bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+.achievements-ticker-wrap::before {
   left: 0;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.3);
-  animation: indicatorFill var(--indicator-duration) linear;
-  border-radius: var(--radius-full);
+  background: linear-gradient(to right, var(--bg), transparent);
+}
+.achievements-ticker-wrap::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg), transparent);
 }
 
-@keyframes indicatorFill {
-  from { width: 0; }
-  to { width: 100%; }
+.achievements-ticker {
+  display: flex;
+  gap: var(--s-4);
+  animation: tickerScroll 40s linear infinite;
+  width: max-content;
 }
 
-/* ── Responsive ── */
+.achievements-ticker:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.achievement-badge {
+  flex-shrink: 0;
+  width: 280px;
+  background: var(--surface-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.5);
+  border-radius: var(--r-lg);
+  padding: var(--s-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-2);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+  cursor: default;
+}
+.achievement-badge:hover {
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  transform: translateY(-3px);
+}
+
+.badge-rank {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--heat);
+  line-height: 1;
+}
+.badge-event {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.badge-date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-3);
+  letter-spacing: 0.06em;
+}
+
 @media (max-width: 768px) {
-  .achievements-carousel {
-    padding: var(--space-3xl) var(--space-lg);
-  }
-
-  .carousel-title {
-    font-size: 28px;
-  }
-
-  .carousel-track {
-    min-height: 240px;
-  }
-
-  .achievement-card {
-    padding: var(--space-xl) var(--space-md);
-  }
-
-  .achievement-title {
-    font-size: 22px;
-  }
-
-  .achievement-description {
-    font-size: 14px;
-  }
-
-  .carousel-button {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-  }
+  .achievements-section { padding: var(--s-8) var(--s-5); }
+  .achievement-badge { width: 240px; padding: var(--s-4); }
 }

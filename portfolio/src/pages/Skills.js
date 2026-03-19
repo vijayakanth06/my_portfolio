@@ -1,13 +1,12 @@
 import React, { memo } from 'react';
 import '../styles/Skills.css';
+import { useRevealSection } from '../hooks/useScrollReveal';
 import {
   SiC, SiPython, SiJavascript, SiHtml5, SiCss3,
   SiGit, SiGithub, SiMysql, SiMongodb, SiReact,
   SiNodedotjs, SiExpress
 } from 'react-icons/si';
-import {
-  FaLanguage, FaUsers, FaComments, FaLightbulb, FaJava
-} from 'react-icons/fa';
+import { FaLanguage, FaUsers, FaComments, FaLightbulb, FaJava } from 'react-icons/fa';
 
 const technicalSkills = [
   { name: 'C', icon: <SiC style={{ color: '#A8B9CC' }} /> },
@@ -20,79 +19,50 @@ const technicalSkills = [
   { name: 'Node.js', icon: <SiNodedotjs style={{ color: '#339933' }} /> },
   { name: 'MySQL', icon: <SiMysql style={{ color: '#4479A1' }} /> },
   { name: 'MongoDB', icon: <SiMongodb style={{ color: '#47A248' }} /> },
-  { name: 'Express.js', icon: <SiExpress style={{ color: '#000000' }} /> },
+  { name: 'Express.js', icon: <SiExpress style={{ color: '#000' }} /> },
   { name: 'Machine Learning', icon: <FaLightbulb style={{ color: '#FA5D19' }} /> },
 ];
-
 const tools = [
   { name: 'Git', icon: <SiGit style={{ color: '#F05032' }} /> },
   { name: 'GitHub', icon: <SiGithub style={{ color: '#6e5494' }} /> },
 ];
-
 const softSkills = [
   { name: 'Communication', icon: <FaComments /> },
   { name: 'Teamwork', icon: <FaUsers /> },
   { name: 'Problem-solving', icon: <FaLightbulb /> },
 ];
-
 const languages = [
   { name: 'English', icon: <FaLanguage /> },
   { name: 'Tamil', icon: <FaLanguage /> },
 ];
 
 const Skills = () => {
+  const ref = useRevealSection();
+
   return (
-    <section className="skills-section" id="skills">
-      <h2 className="skills-heading">SKILLS</h2>
+    <section className="skills-section" id="skills" ref={ref}>
+      <p className="terminal-label reveal">SKILLS</p>
+      <h2 className="section-title reveal reveal-delay-1">What I Work With</h2>
 
-      <div className="skills-container">
-        <div className="skills-category">
-          <h3 className="skills-subheading">Technical Skills</h3>
-          <div className="skills-grid">
-            {technicalSkills.map((skill, index) => (
-              <div className="skill-item" key={index}>
-                <div className="skill-icon">{skill.icon}</div>
-                <span>{skill.name}</span>
-              </div>
-            ))}
+      <div className="skills-grid">
+        {[
+          { title: 'Technical Skills', items: technicalSkills },
+          { title: 'Tools', items: tools },
+          { title: 'Soft Skills', items: softSkills },
+          { title: 'Languages', items: languages },
+        ].map(({ title, items }, catIdx) => (
+          <div className={`skill-card reveal reveal-delay-${catIdx + 2}`} key={title}>
+            <h3 className="skill-card-title">{title}</h3>
+            <div className="skill-pills">
+              {items.map((item, i) => (
+                <span className="skill-pill" key={i}>
+                  <span className="icon">{item.icon}</span>
+                  {item.name}
+                </span>
+              ))}
+            </div>
           </div>
-        </div>
-
-        <div className="skills-category">
-          <h3 className="skills-subheading">Tools</h3>
-          <div className="skills-grid">
-            {tools.map((tool, index) => (
-              <div className="skill-item" key={index}>
-                <div className="skill-icon">{tool.icon}</div>
-                <span>{tool.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="skills-category">
-          <h3 className="skills-subheading">Soft Skills</h3>
-          <div className="soft-skills-list">
-            {softSkills.map((skill, index) => (
-              <div className="soft-skill-item" key={index}>
-                <div className="soft-skill-icon">{skill.icon}</div>
-                <span>{skill.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="skills-category">
-          <h3 className="skills-subheading">Languages</h3>
-          <div className="language-list">
-            {languages.map((lang, index) => (
-              <div className="language-item" key={index}>
-                <div className="language-icon">{lang.icon}</div>
-                <span>{lang.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
