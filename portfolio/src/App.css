@@ -1,9 +1,52 @@
-html {
-  scroll-behavior: smooth;
+/* ================================================
+   APP LAYOUT
+   ================================================ */
+.home-app {
+  min-height: 100vh;
+  position: relative;
 }
 
-section {
-  scroll-margin-top: 80px; /* Adjust based on your navbar height */
+/* Footer */
+.footer {
+  text-align: center;
+  padding: var(--space-xl) var(--space-lg);
+  font-size: 14px;
+  color: var(--text-muted);
+  border-top: 1px solid var(--border-faint);
+  background: var(--bg-base);
+}
 
-  padding: 20px;
+/* Scroll to top FAB */
+.scroll-to-top {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--heat-100);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  box-shadow: var(--shadow-prominent);
+  transition: background 150ms ease, transform 150ms ease;
+  z-index: 90;
+  border: none;
+  cursor: pointer;
+}
+
+.scroll-to-top:hover {
+  background: var(--heat-hover);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .scroll-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
 }

@@ -1,26 +1,12 @@
-import React from 'react';
+import React, { memo } from 'react';
 import '../styles/Skills.css';
 import {
-  SiC,
-  SiPython,
-  SiJavascript,
-  SiHtml5,
-  SiCss3,
-  SiGit,
-  SiGithub,
-  SiMysql,
-  SiMongodb,
-  SiBlender,
-  SiReact,
-  SiNodedotjs,
-  SiExpress
+  SiC, SiPython, SiJavascript, SiHtml5, SiCss3,
+  SiGit, SiGithub, SiMysql, SiMongodb, SiReact,
+  SiNodedotjs, SiExpress
 } from 'react-icons/si';
 import {
-  FaLanguage,
-  FaUsers,
-  FaComments,
-  FaLightbulb,
-  FaJava
+  FaLanguage, FaUsers, FaComments, FaLightbulb, FaJava
 } from 'react-icons/fa';
 
 const technicalSkills = [
@@ -34,7 +20,8 @@ const technicalSkills = [
   { name: 'Node.js', icon: <SiNodedotjs style={{ color: '#339933' }} /> },
   { name: 'MySQL', icon: <SiMysql style={{ color: '#4479A1' }} /> },
   { name: 'MongoDB', icon: <SiMongodb style={{ color: '#47A248' }} /> },
-  { name: 'Express.js', icon: <SiExpress style={{ color: '#000000' }} /> }
+  { name: 'Express.js', icon: <SiExpress style={{ color: '#000000' }} /> },
+  { name: 'Machine Learning', icon: <FaLightbulb style={{ color: '#FA5D19' }} /> },
 ];
 
 const tools = [
@@ -45,12 +32,12 @@ const tools = [
 const softSkills = [
   { name: 'Communication', icon: <FaComments /> },
   { name: 'Teamwork', icon: <FaUsers /> },
-  { name: 'Problem-solving', icon: <FaLightbulb /> }
+  { name: 'Problem-solving', icon: <FaLightbulb /> },
 ];
 
 const languages = [
   { name: 'English', icon: <FaLanguage /> },
-  { name: 'Tamil', icon: <FaLanguage /> }
+  { name: 'Tamil', icon: <FaLanguage /> },
 ];
 
 const Skills = () => {
@@ -111,4 +98,4 @@ const Skills = () => {
   );
 };
 
-export default Skills;
+export default memo(Skills);

@@ -1,286 +1,210 @@
-/* Achievements Carousel */
+/* ================================================
+   ACHIEVEMENTS CAROUSEL
+   ================================================ */
 .achievements-carousel {
-  padding: 5rem 9%;
-  background-color: #000000;
-  color: white;
-  position: relative;
+  padding: var(--space-section) 0;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--space-3xl);
+  padding-right: var(--space-3xl);
   overflow: hidden;
 }
 
 .carousel-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2xl);
   text-align: center;
-  color: #da0c1df0;
 }
 
 .carousel-container {
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 60px;
-  perspective: 1000px;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
 }
-  
+
 .carousel-track {
+  flex: 1;
   position: relative;
-  height: 350px;
-  perspective: 1000px;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel-slide {
   position: absolute;
   width: 100%;
-  height: 100%;
-  padding: 20px;
-  transition: all 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-  transform-style: preserve-3d;
   opacity: 0;
-  visibility: hidden;
-  transform: translateX(50%) scale(0.8);
-  z-index: 1;
+  transform: translateX(60px);
+  transition: all 400ms ease;
+  pointer-events: none;
 }
 
 .carousel-slide.active {
   opacity: 1;
-  visibility: visible;
-  transform: translateX(0) scale(1);
-  z-index: 3;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .carousel-slide.prev {
-  opacity: 0.6;
-  visibility: visible;
-  transform: translateX(-50%) scale(0.9);
-  z-index: 2;
+  opacity: 0;
+  transform: translateX(-60px);
 }
 
 .carousel-slide.next {
-  opacity: 0.6;
-  visibility: visible;
-  transform: translateX(50%) scale(0.9);
-  z-index: 2;
+  opacity: 0;
+  transform: translateX(60px);
 }
 
+/* Achievement card */
 .achievement-card {
-  background-color: #222;
-  border-radius: 10px;
-  padding: 2rem;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  height: 100%;
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-}
-
-.active .achievement-card {
-  transform: translateZ(20px);
-  box-shadow: 0 15px 35px rgba(255, 0, 0, 0.4);
+  background: var(--surface);
+  border: 1px solid var(--border-faint);
+  border-radius: var(--radius-md);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  box-shadow: var(--shadow-soft);
+  min-height: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
 }
 
 .achievement-title {
-  font-size: 2.5rem;
-  color: #da0c1df0;
-  margin-bottom: 0.5rem;
-  transition: all 0.5s ease;
-}
-
-.active .achievement-title {
-  transform: translateY(0);
-}
-
-.prev .achievement-title,
-.next .achievement-title {
-  transform: translateY(20px);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--heat-100);
+  line-height: 1.2;
 }
 
 .achievement-date {
-  color: #aaa;
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  transition: all 0.5s ease 0.1s;
-}
-
-.active .achievement-date {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.prev .achievement-date,
-.next .achievement-date {
-  opacity: 0;
-  transform: translateY(10px);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--bg-base);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-faint);
 }
 
 .achievement-description {
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  transition: all 0.5s ease 0.2s;
-  font-size: 1.2rem;
-}
-
-.active .achievement-description {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.prev .achievement-description,
-.next .achievement-description {
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.achievement-details {
-  margin-top: 1rem;
-  transition: all 0.5s ease 0.3s;
-}
-
-.active .achievement-details {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.prev .achievement-details,
-.next .achievement-details {
-  opacity: 0;
-  transform: translateY(20px);
+  font-size: 16px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  max-width: 500px;
 }
 
 .achievement-details summary {
-  font-weight: 600;
-  color: #da0c1df0;
   cursor: pointer;
-  margin-bottom: 0.5rem;
-  display: inline-block;
+  color: var(--heat-100);
+  font-size: 14px;
+  font-weight: 500;
 }
 
-.achievement-details p {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: #ccc;
-  padding-left: 1rem;
-  margin-top: 0.5rem;
-}
-
+/* Carousel nav buttons */
 .carousel-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(218, 12, 29, 0.7);
-  color: white;
-  border: none;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-muted);
+  background: var(--surface);
+  color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 16px;
   cursor: pointer;
-  z-index: 10;
-  transition: all 0.3s ease;
-  font-size: 1.2rem;
+  transition: all 200ms ease;
+  box-shadow: var(--shadow-whisper);
 }
 
 .carousel-button:hover {
-  background: #da0c1df0;
-  transform: translateY(-50%) scale(1.1);
+  border-color: var(--heat-100);
+  color: var(--heat-100);
+  box-shadow: var(--shadow-soft);
 }
 
-.carousel-button.prev {
-  left: 0;
-}
-
-.carousel-button.next {
-  right: 0;
-}
-
+/* Dot indicators */
 .carousel-indicators {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
-  gap: 12px;
+  gap: var(--space-sm);
+  margin-top: var(--space-xl);
 }
 
 .indicator {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: #444;
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
   border: none;
+  background: var(--border-muted);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 300ms ease;
+  padding: 0;
   position: relative;
   overflow: hidden;
 }
 
-.indicator::after {
+.indicator.active {
+  width: 32px;
+  background: var(--heat-100);
+}
+
+/* Auto-play fill animation for active indicator */
+.achievements-carousel.autoplaying .indicator.active::after {
   content: '';
   position: absolute;
   top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: #da0c1df0;
-  transition: all 4.8s linear;
-}
-
-.indicator.active::after {
   left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: indicatorFill var(--indicator-duration) linear;
+  border-radius: var(--radius-full);
 }
 
-.indicator.active {
-  transform: scale(1.2);
+@keyframes indicatorFill {
+  from { width: 0; }
+  to { width: 100%; }
 }
 
-/* Responsive Styles */
+/* ── Responsive ── */
 @media (max-width: 768px) {
   .achievements-carousel {
-    padding: 3rem 5%;
+    padding: var(--space-3xl) var(--space-lg);
   }
-  
-  .carousel-container {
-    padding: 0 40px;
-  }
-  
-  .carousel-track {
-    height: auto;
-  }
-  
-  .carousel-button {
-    width: 40px;
-    height: 40px;
-  }
-  
-  .achievement-card {
-    padding: 1.5rem;
-    height: auto;
-  }
-  
-  .achievement-title {
-    font-size: 1.3rem;
-  }
-  
-  .carousel-slide.prev,
-  .carousel-slide.next {
-    opacity: 0.3;
-  }
-}
 
-@media (max-width: 480px) {
-  .carousel-container {
-    padding: 0 30px;
+  .carousel-title {
+    font-size: 28px;
   }
-  
+
   .carousel-track {
-    height: 220px;
+    min-height: 240px;
   }
-  
+
+  .achievement-card {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .achievement-title {
+    font-size: 22px;
+  }
+
+  .achievement-description {
+    font-size: 14px;
+  }
+
   .carousel-button {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-  }
-  
-  .indicator {
-    width: 12px;
-    height: 12px;
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
   }
 }
