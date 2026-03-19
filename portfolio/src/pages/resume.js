@@ -60,7 +60,7 @@ const Resume = () => {
       <div className="resume-header">
         <picture>
           <source srcSet="/profile.webp" type="image/webp" />
-          <img src="/profile.jpg" alt="Vijayakanth M" className="resume-photo" width="120" height="120" />
+          <img src="/profile.jpeg" alt="Vijayakanth M" className="resume-photo" width="120" height="120" />
         </picture>
         <div className="resume-header-text">
           <h1>VIJAYAKANTH M</h1>

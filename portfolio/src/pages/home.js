@@ -97,7 +97,7 @@ const HOME = () => {
       {/* ── HERO ── */}
       <section className="hero" id="hero">
         <p className={`hero-label ${heroReady ? '' : 'reveal'} ${heroReady ? '' : ''}`}>
-          <span>//</span> HELLO WORLD <span>//</span>
+          <span>{"//"}</span> HELLO WORLD <span>{"//"}</span>
         </p>
 
         <h1 className="hero-name" style={{ opacity: heroReady ? 1 : 0, transition: 'opacity 0.3s ease' }}>
@@ -146,7 +146,7 @@ const HOME = () => {
           <div className="about-photo-wrap reveal reveal-delay-2">
             <picture>
               <source srcSet="/profile.webp" type="image/webp" />
-              <img src="/profile.jpg" alt="Vijayakanth M" className="about-photo" width="160" height="160" />
+              <img src="/profile.jpeg" alt="Vijayakanth M" className="about-photo" width="160" height="160" />
             </picture>
           </div>
 
