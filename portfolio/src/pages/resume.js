@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/resumestyles.css';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const EDUCATION = [
   { degree: 'B.Tech — Artificial Intelligence and Machine Learning', institution: 'Kongu Engineering College, Erode', detail: 'CGPA: 8.62*', date: 'Expected 2027', coursework: 'Python, JAVA, C, JavaScript, Machine Learning, Deep Learning' },
@@ -54,6 +55,12 @@ const ACHIEVEMENTS = [
 ];
 
 const Resume = () => {
+  useDocumentMetadata({
+    title: 'Vijayakanth M | Resume & CV',
+    description: 'Professional Resume of Vijayakanth M, aspiring AI & ML Engineer and Web Developer. B.Tech Student at Kongu Engineering College, 10x hackathon winner, and Zeone/Shinelogics intern.',
+    keywords: 'Vijayakanth M Resume, Vijayakanth M CV, AI ML Engineer Resume, Full Stack Developer CV, Kongu Engineering College Resume'
+  });
+
   return (
     <div className="resume-page">
       {/* Header */}

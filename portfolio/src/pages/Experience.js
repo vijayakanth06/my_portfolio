@@ -21,7 +21,7 @@ const experiences = [
     ],
   },
   {
-    role: 'Software Intern',
+    role: 'Artificial Intelligence Intern',
     company: 'TWINCORD TECHNOLOGIES',
     date: 'Jul 2025 – Oct 2025',
     points: [

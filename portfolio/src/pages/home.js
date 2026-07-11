@@ -4,6 +4,7 @@ import { LikeContext } from './LikeContext';
 import { useRevealSection } from '../hooks/useScrollReveal';
 import DotGridCanvas from '../components/DotGridCanvas';
 import SectionCounter from '../components/SectionCounter';
+import useDocumentMetadata from '../hooks/useDocumentMetadata';
 import { FaLinkedin, FaGithub, FaCode, FaEnvelope, FaThumbsUp, FaThumbsDown, FaArrowUp, FaChevronDown } from 'react-icons/fa';
 import Skills from './Skills';
 import Education from './Education';
@@ -11,7 +12,6 @@ import Projects from './Projects';
 import Contact from './Contact';
 import Achievements from './Achievements';
 import Experience from './Experience';
-
 const TYPING_ROLES = [
   'Engineering Student',
   'Hackathon Winner',
@@ -22,6 +22,12 @@ const TYPING_ROLES = [
 ];
 
 const HOME = () => {
+  useDocumentMetadata({
+    title: 'Vijayakanth M | AI/ML Engineer & Full Stack Developer',
+    description: 'Portfolio of Vijayakanth M, an AI/ML Engineer and Full Stack MERN Developer. Kongu Engineering College student and 10x hackathon winner building high-impact AI solutions.',
+    keywords: 'Vijayakanth M, Vijayakanth, AI Engineer, ML Engineer, Full Stack Developer, MERN, React, Portfolio, Kongu Engineering College, Hackathon Winner'
+  });
+
   const { likes, dislikes, userVote, handleLike, handleDislike } = useContext(LikeContext);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [typedText, setTypedText] = useState('');
