@@ -158,18 +158,18 @@ const HOME = () => {
 
           <div className="about-text">
             <p className="reveal reveal-delay-3">
-              I'm <strong>Vijayakanth M</strong>, a B.Tech AI &amp; ML student at Kongu Engineering College (CGPA 8.62*).
+              I'm <strong>Vijayakanth M</strong>, a B.Tech AI &amp; ML student at Kongu Engineering College (CGPA 8.49*).
               I specialize in building full-stack web applications and AI-powered solutions that solve real problems.
             </p>
             <p className="reveal reveal-delay-4">
-              With 14 projects, 3 internships, and 10 hackathon wins under my belt,
+              With 10+ projects, 3 internships, and 10 hackathon wins under my belt,
               I thrive in fast-paced, creative environments where I can push the boundaries of what's possible
               with code.
             </p>
 
             <div className="about-stats reveal reveal-delay-5">
               <div className="stat-item">
-                <div className="stat-number">14</div>
+                <div className="stat-number">10+</div>
                 <div className="stat-label">Projects</div>
               </div>
               <div className="stat-item">
