@@ -3,7 +3,7 @@ import '../styles/resumestyles.css';
 import useDocumentMetadata from '../hooks/useDocumentMetadata';
 
 const EDUCATION = [
-  { degree: 'B.Tech — Artificial Intelligence and Machine Learning', institution: 'Kongu Engineering College, Erode', detail: 'CGPA: 8.62*', date: 'Expected 2027', coursework: 'Python, JAVA, C, JavaScript, Machine Learning, Deep Learning' },
+  { degree: 'B.Tech — Artificial Intelligence and Machine Learning', institution: 'Kongu Engineering College, Erode', detail: 'CGPA: 8.49*', date: 'Expected 2027', coursework: 'Python, JAVA, C, JavaScript, Machine Learning, Deep Learning' },
   { degree: 'HSC in Computer Science', institution: 'Kongu Vellalar Matric. Hr. Sec. School, Perundurai', detail: '94%', date: '2022 – 2023' },
   { degree: 'SSLC', institution: 'Kongu Vellalar Matric. Hr. Sec. School, Perundurai', detail: '', date: '2020 – 2021' },
 ];
