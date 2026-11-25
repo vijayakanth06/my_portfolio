@@ -121,9 +121,3 @@ gantt
 
 ---
 
-<p align="center">
-  <img src="https://github-profile-trophy.vercel.app/?username=vijayakanth06&theme=discord&no-frame=true&row=1&column=7" />
-</p>
-
----
-

@@ -8,11 +8,17 @@ const firebaseConfig = {
   projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
   storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
   messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.REACT_APP_FIREBASE_APP_ID
+  appId: process.env.REACT_APP_FIREBASE_APP_ID,
 };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+let database = null;
+try {
+  if (firebaseConfig.apiKey && firebaseConfig.databaseURL) {
+    const app = initializeApp(firebaseConfig);
+    database = getDatabase(app);
+  }
+} catch (error) {
+  console.error('Firebase initialization failed:', error);
+}
 
 export { database };

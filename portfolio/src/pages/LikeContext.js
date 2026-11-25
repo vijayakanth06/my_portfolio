@@ -8,9 +8,7 @@ export const LikeProvider = ({ children }) => {
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
   const [userVote, setUserVote] = useState(null);
-  const [loading, setLoading] = useState(true);
 
-  // Get or generate a unique user ID
   const getUserId = () => {
     let userId = localStorage.getItem('userId');
     if (!userId) {
@@ -21,43 +19,53 @@ export const LikeProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    if (!database) return;
+
     const userId = getUserId();
     const votesRef = ref(database, 'votes');
     const userVoteRef = ref(database, `userVotes/${userId}`);
 
-    // Fetch initial counts
-    get(votesRef).then((snapshot) => {
-      const data = snapshot.val() || { likes: 0, dislikes: 0 };
-      setLikes(data.likes);
-      setDislikes(data.dislikes);
-    });
+    get(votesRef)
+      .then((snapshot) => {
+        const data = snapshot.val() || { likes: 0, dislikes: 0 };
+        setLikes(data.likes || 0);
+        setDislikes(data.dislikes || 0);
+      })
+      .catch((error) => {
+        console.error('Error fetching votes:', error);
+      });
 
-    // Fetch user's vote
-    get(userVoteRef).then((snapshot) => {
-      setUserVote(snapshot.val() || null);
-      setLoading(false);
-    });
+    get(userVoteRef)
+      .then((snapshot) => {
+        setUserVote(snapshot.val() || null);
+      })
+      .catch((error) => {
+        console.error('Error fetching user vote:', error);
+      });
 
-    // Set up realtime listener for vote counts
-    const unsubscribe = onValue(votesRef, (snapshot) => {
-      const data = snapshot.val() || { likes: 0, dislikes: 0 };
-      setLikes(data.likes);
-      setDislikes(data.dislikes);
-    });
+    const unsubscribe = onValue(
+      votesRef,
+      (snapshot) => {
+        const data = snapshot.val() || { likes: 0, dislikes: 0 };
+        setLikes(data.likes || 0);
+        setDislikes(data.dislikes || 0);
+      },
+      (error) => {
+        console.error('Error subscribing to votes:', error);
+      }
+    );
 
     return () => unsubscribe();
   }, []);
 
   const updateVotes = async (newLikes, newDislikes, newUserVote) => {
+    if (!database) return;
     const userId = getUserId();
     try {
-      // Update counts
       await set(ref(database, 'votes'), {
         likes: newLikes,
-        dislikes: newDislikes
+        dislikes: newDislikes,
       });
-
-      // Update user's vote
       await set(ref(database, `userVotes/${userId}`), newUserVote);
     } catch (error) {
       console.error('Error updating votes:', error);
@@ -80,6 +88,8 @@ export const LikeProvider = ({ children }) => {
       newUserVote = 'like';
     }
 
+    setLikes(newLikes);
+    setDislikes(newDislikes);
     setUserVote(newUserVote);
     await updateVotes(newLikes, newDislikes, newUserVote);
   };
@@ -100,13 +110,11 @@ export const LikeProvider = ({ children }) => {
       newUserVote = 'dislike';
     }
 
+    setLikes(newLikes);
+    setDislikes(newDislikes);
     setUserVote(newUserVote);
     await updateVotes(newLikes, newDislikes, newUserVote);
   };
-
-  if (loading) {
-    return <div>Loading...</div>;
-  }
 
   return (
     <LikeContext.Provider value={{ likes, dislikes, userVote, handleLike, handleDislike }}>
