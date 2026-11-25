@@ -79,7 +79,7 @@ const Navbar = () => {
         >
           Resume
         </Link>
-        <a href="Vijayakanth_resume.pdf" download className="nav-cta">
+        <a href="/Vijayakanth_resume.pdf" download className="nav-cta">
           Download CV
         </a>
       </nav>

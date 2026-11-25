@@ -74,6 +74,29 @@
   display: flex;
 }
 
+.interests-strip {
+  margin-top: var(--s-5);
+  background: var(--surface-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius: var(--r-lg);
+  padding: var(--s-5) var(--s-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.interest-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: var(--r-full);
+  background: var(--heat-subtle);
+  color: var(--heat);
+  border: 1px solid var(--heat-border);
+  font-size: 13px;
+  font-weight: 500;
+}
+
 @media (max-width: 768px) {
   .skills-section { padding: var(--s-8) var(--s-5); }
   .skills-grid { grid-template-columns: 1fr; }

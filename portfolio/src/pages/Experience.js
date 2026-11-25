@@ -3,29 +3,30 @@ import '../styles/Experience.css';
 
 const experiences = [
   {
-    role: 'Full Stack Intern',
-    company: 'ZEONE',
-    date: 'Nov 2024 – Jan 2025',
+    role: 'AI / Data Science Intern',
+    company: 'Twincord Technologies',
+    date: 'Jul 2025 – Oct 2025',
     points: [
-      'Gained practical knowledge in Full Stack development.',
-      'Worked on back-end development using Node.js for an AI Interview Chatbot.',
+      'Deployed FastAPI ML inference endpoints; monitored latency and optimized scalability of the AI platform.',
+      'Collaborated with senior developers on algorithm implementation, model validation, and troubleshooting.',
     ],
   },
   {
     role: 'Deep Learning Intern',
-    company: 'SHINELOGICS',
+    company: 'Shinelogics',
     date: 'Mar 2025 – May 2025',
     points: [
-      'Gained practical knowledge in Deep Learning models.',
-      'Worked on real-time projects including prediction of fruits and vegetables.',
+      'Trained CNN models (ResNet, EfficientNet, MobileNet) on GPU for real-time product identification; deployed and validated on edge hardware over a 2-week production trial with 98%+ uptime and zero critical failures.',
+      'Optimized model inference pipeline reducing latency by 35%; tested across 70+ product images during real-time deployment validation.',
     ],
   },
   {
-    role: 'Artificial Intelligence Intern',
-    company: 'TWINCORD TECHNOLOGIES',
-    date: 'Jul 2025 – Oct 2025',
+    role: 'Backend Developer Intern',
+    company: 'ZEONE',
+    date: 'Nov 2024 – Jan 2025',
     points: [
-      'Completed assigned tasks and modules as per mentor guidance.',
+      'Built 6 RESTful APIs in Node.js/Express for an AI-powered interview application; optimized database queries and caching reducing average API response time from 1.2s to 450ms (62% improvement).',
+      'Implemented JWT authentication and request validation; processed 500+ concurrent interview sessions during QA testing with zero downtime.',
     ],
   },
 ];

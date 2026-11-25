@@ -13,19 +13,19 @@ import Contact from './Contact';
 import Achievements from './Achievements';
 import Experience from './Experience';
 const TYPING_ROLES = [
-  'Engineering Student',
-  'Hackathon Winner',
-  'MERN Stack Developer',
-  'LeetCode 100+ Solved',
-  'LLM Enthusiast',
-  'AI Project Builder',
+  'AI & ML Engineer',
+  'IIT Bombay Hackathon Winner',
+  'SIH 2025 National Finalist',
+  'Deep Learning & CV Builder',
+  'Agentic AI & RAG Developer',
+  'Full Stack Developer',
 ];
 
 const HOME = () => {
   useDocumentMetadata({
-    title: 'Vijayakanth M | AI/ML Engineer & Full Stack Developer',
-    description: 'Portfolio of Vijayakanth M, an AI/ML Engineer and Full Stack MERN Developer. Kongu Engineering College student and 10x hackathon winner building high-impact AI solutions.',
-    keywords: 'Vijayakanth M, Vijayakanth, AI Engineer, ML Engineer, Full Stack Developer, MERN, React, Portfolio, Kongu Engineering College, Hackathon Winner'
+    title: 'Vijayakanth M | AI & ML Engineer & Full Stack Developer',
+    description: 'Portfolio of Vijayakanth M, final-year AI & ML Engineer at Kongu Engineering College. Winner of CTD 2026 AI/ML Hackathon at IIT Bombay, SIH 2025 National Finalist, and Top-4 Finalist at IIT Bombay CTD 2025.',
+    keywords: 'Vijayakanth M, Vijayakanth, AI Engineer, ML Engineer, Deep Learning, LLMs, RAG, FastMCP, FastAPI, LangGraph, Full Stack Developer, Kongu Engineering College, IIT Bombay Hackathon Winner, SIH 2025 Finalist'
   });
 
   const { likes, dislikes, userVote, handleLike, handleDislike } = useContext(LikeContext);
@@ -117,12 +117,12 @@ const HOME = () => {
         </p>
 
         <p className="hero-tagline">
-          Engineering student building real-world AI &amp; MERN projects.
-          Multiple hackathon winner. Driven by impact.
+          Final-year AI &amp; ML engineer deploying Deep Learning, RAG &amp; Agentic AI systems.
+          IIT Bombay CTD 2026 Winner · SIH 2025 National Finalist.
         </p>
 
         <div className="hero-socials">
-          <a href="https://www.linkedin.com/in/vijayakanth-m-7b7767312" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
+          <a href="https://www.linkedin.com/in/vijayakanth06" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><FaLinkedin /></a>
           <a href="https://github.com/vijayakanth06" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><FaGithub /></a>
           <a href="https://leetcode.com/u/Vijayakanth06/" target="_blank" rel="noopener noreferrer" aria-label="LeetCode"><FaCode /></a>
           <a href="https://mail.google.com/mail/?view=cm&fs=1&to=vikymahendiran123@gmail.com" aria-label="Email"><FaEnvelope /></a>
@@ -132,7 +132,7 @@ const HOME = () => {
           <button onClick={scrollToAbout} className="hero-btn-primary">
             Explore My Work <FaChevronDown style={{ fontSize: 12 }} />
           </button>
-          <a href="Vijayakanth_resume.pdf" download className="hero-btn-ghost">
+          <a href="/Vijayakanth_resume.pdf" download className="hero-btn-ghost">
             Download CV
           </a>
         </div>
@@ -158,22 +158,21 @@ const HOME = () => {
 
           <div className="about-text">
             <p className="reveal reveal-delay-3">
-              I'm <strong>Vijayakanth M</strong>, a B.Tech AI &amp; ML student at Kongu Engineering College (CGPA 8.49*).
-              I specialize in building full-stack web applications and AI-powered solutions that solve real problems.
+              Final year AI &amp; ML engineer with internship experience in AI, ML, Data Science and Deep Learning,
+              skilled in Python, machine learning, and deploying deep learning models.
             </p>
             <p className="reveal reveal-delay-4">
-              With 10+ projects, 3 internships, and 10 hackathon wins under my belt,
-              I thrive in fast-paced, creative environments where I can push the boundaries of what's possible
-              with code.
+              Proven through internships, SIH 2025 Finals and Top-4 finalist at IIT Bombay CTD International Hackathon 2025
+              and CTD 2026 AI/ML Hackathon Winner at IIT Bombay.
             </p>
 
             <div className="about-stats reveal reveal-delay-5">
               <div className="stat-item">
-                <div className="stat-number">10+</div>
+                <div className="stat-number">16+</div>
                 <div className="stat-label">Projects</div>
               </div>
               <div className="stat-item">
-                <div className="stat-number">10</div>
+                <div className="stat-number">13+</div>
                 <div className="stat-label">Awards</div>
               </div>
               <div className="stat-item">
@@ -206,7 +205,7 @@ const HOME = () => {
       <Contact />
 
       <footer className="footer">
-        © 2025 <a href="https://github.com/vijayakanth06">Vijayakanth M</a>. Built with React.
+        © 2026 <a href="https://github.com/vijayakanth06">Vijayakanth M</a>. Built with React.
       </footer>
 
       <button

@@ -1,7 +1,7 @@
 import React, { memo, useRef } from 'react';
 import '../styles/Contact.css';
 import { useRevealSection } from '../hooks/useScrollReveal';
-import { FaEnvelope, FaWhatsapp } from 'react-icons/fa';
+import { FaEnvelope, FaWhatsapp, FaMapMarkerAlt } from 'react-icons/fa';
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -45,6 +45,14 @@ const Contact = () => {
               <div>
                 <span className="contact-card-label">WhatsApp</span>
                 <a href="https://wa.me/919360177805" className="contact-card-value">+91 93601 77805</a>
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-card-icon"><FaMapMarkerAlt /></div>
+              <div>
+                <span className="contact-card-label">Location</span>
+                <span className="contact-card-value">Erode, Perundurai</span>
               </div>
             </div>
           </div>
